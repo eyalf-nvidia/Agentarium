@@ -1,5 +1,4 @@
 import os
-from typing import Dict
 
 import yaml
 
@@ -37,7 +36,7 @@ class Config:
             Config: The single instance of the Config class.
         """
         if cls._instance is None:
-            cls._instance = super(Config, cls).__new__(cls)
+            cls._instance = super().__new__(cls)
         return cls._instance
 
     def __init__(self):
@@ -73,7 +72,7 @@ class Config:
         # Try to load from config.yaml in the current directory
         config_path = "config.yaml"
         if os.path.exists(config_path):
-            with open(config_path, "r") as f:
+            with open(config_path) as f:
                 yaml_config = yaml.safe_load(f)
                 if yaml_config:
                     self._deep_update(self._config, yaml_config)
@@ -84,7 +83,7 @@ class Config:
         self._config["llm"]["model"] = os.getenv("AGENTARIUM_LLM_MODEL", self._config["llm"]["model"])
 
 
-    def _deep_update(self, d: Dict, u: Dict) -> Dict:
+    def _deep_update(self, d: dict, u: dict) -> dict:
         """
         Recursively update a dictionary with values from another dictionary.
 

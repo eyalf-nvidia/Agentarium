@@ -1,11 +1,11 @@
 import hashlib
 import json
-from typing import Any, Dict
+from typing import Any
 
 from .CheckpointManager import CheckpointManager
 
 
-def dict_hash(dictionary: Dict[str, Any]) -> str:
+def dict_hash(dictionary: dict[str, Any]) -> str:
     """MD5 hash of a dictionary."""
     dhash = hashlib.md5()
 

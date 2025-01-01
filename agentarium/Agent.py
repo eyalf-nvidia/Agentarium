@@ -2,9 +2,9 @@ from __future__ import annotations
 
 import logging
 import re
+from collections.abc import Callable
 from copy import deepcopy
 from enum import Enum
-from typing import Callable, List
 
 import aisuite as ai
 from faker import Faker
@@ -377,7 +377,7 @@ Write in the following format:
         """
         return Agent.__str__(self)
 
-    def get_interactions(self) -> List[Interaction]:
+    def get_interactions(self) -> list[Interaction]:
         """
         Retrieve all interactions involving this agent.
 
@@ -574,10 +574,10 @@ Write in the following format:
                 output = fn_output if type(fn_output) == dict else {"output": fn_output}
 
                 if "action" in output:
-                    logging.warning((
+                    logging.warning(
                         f"The action '{name}' returned an output with an 'action' key. "
                         "This is not allowed, it will be overwritten."
-                    ))
+                    )
 
                 output["action"] = name
 

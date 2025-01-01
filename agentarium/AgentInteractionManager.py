@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Dict, List
+from typing import TYPE_CHECKING
 
 from .Interaction import Interaction
 
@@ -31,7 +31,7 @@ class AgentInteractionManager:
             AgentInteractionManager: The single instance of the manager.
         """
         if cls._instance is None:
-            cls._instance = super(AgentInteractionManager, cls).__new__(cls)
+            cls._instance = super().__new__(cls)
             cls._instance._initialized = False
         return cls._instance
 
@@ -43,9 +43,9 @@ class AgentInteractionManager:
         multiple instances are created.
         """
         if not self._initialized:
-            self._agents: Dict[str, Agent] = {}
-            self._interactions: List[Interaction] = []
-            self._agent_private_interactions: Dict[str, List[Interaction]] = {}
+            self._agents: dict[str, Agent] = {}
+            self._interactions: list[Interaction] = []
+            self._agent_private_interactions: dict[str, list[Interaction]] = {}
             self._initialized = True
 
     def register_agent(self, agent: Agent) -> None:
@@ -102,7 +102,7 @@ class AgentInteractionManager:
         if receiver.agent_id != sender.agent_id:
             self._agent_private_interactions[receiver.agent_id].append(interaction)
 
-    def get_all_interactions(self) -> List[Interaction]:
+    def get_all_interactions(self) -> list[Interaction]:
         """
         Retrieve the complete history of all interactions in the environment.
 
@@ -113,7 +113,7 @@ class AgentInteractionManager:
         """
         return self._interactions
 
-    def get_agent_interactions(self, agent: Agent) -> List[Interaction]:
+    def get_agent_interactions(self, agent: Agent) -> list[Interaction]:
         """
         Retrieve all interactions involving a specific agent.
 

@@ -20,7 +20,7 @@ except 'action' which is reserved. The function's output will be automatically
 standardized to include the action name.
 """
 
-from typing import Any, Dict
+from typing import Any
 
 import aisuite as ai
 
@@ -30,7 +30,7 @@ from agentarium.agent import Agent
 llm_client = ai.Client()
 
 
-def use_chatgpt(agent: Agent, prompt: str, *args, **kwargs) -> Dict[str, str]:
+def use_chatgpt(agent: Agent, prompt: str, *args, **kwargs) -> dict[str, str]:
     """
     A custom action that allows an agent to interact with ChatGPT.
     This function demonstrates how to:
@@ -80,7 +80,7 @@ def use_chatgpt(agent: Agent, prompt: str, *args, **kwargs) -> Dict[str, str]:
     }
 
 
-def print_agent_output(output: Dict[str, Any]) -> None:
+def print_agent_output(output: dict[str, Any]) -> None:
     """
     Helper function to format and print agent's action outputs.
 
