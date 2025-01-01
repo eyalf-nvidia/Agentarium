@@ -1,7 +1,6 @@
 from agentarium import Agent
 from agentarium.CheckpointManager import CheckpointManager
 
-
 if __name__ == '__main__':
 
     # Initialize the CheckpointManager with a unique identifier for this session

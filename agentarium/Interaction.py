@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
@@ -56,4 +57,3 @@ class Interaction:
             str: A formatted string showing sender, receiver, and the interaction message.
         """
         return self.__str__()
-

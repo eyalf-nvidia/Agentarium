@@ -1,0 +1,36 @@
+default_language_version:
+    # Force all unspecified Python hooks to run with Python 3.12
+    python: python3.12
+
+repos:
+  - repo: https://github.com/pre-commit/mirrors-isort
+    rev: v5.10.1
+    hooks:
+      - id: isort
+        args: ["--profile=black"]  # Use isort with a Black-compatible sorting style
+
+  - repo: https://github.com/PyCQA/autoflake
+    rev: v2.3.1
+    hooks:
+      - id: autoflake
+        args: [
+          "--remove-all-unused-imports",  # Remove unused imports
+          "--in-place",  # Modify files in place
+        ]
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files  # Warn if a commit includes large files
+      - id: check-ast  # Ensure Python files are parsable
+      - id: fix-byte-order-marker  # Remove unnecessary byte order marks from files
+      - id: check-case-conflict  # Detect case conflicts in filenames
+      - id: check-docstring-first  # Ensure the first line of Python functions/classes is a docstring
+      - id: check-executables-have-shebangs  # Ensure executables have a valid shebang line
+      - id: check-merge-conflict  # Detect unresolved merge conflicts
+      - id: check-yaml  # Validate YAML files
+      - id: debug-statements  # Prevent committing Python debug statements (e.g., print, pdb)
+      - id: detect-private-key  # Warn if private keys are accidentally committed
+      - id: end-of-file-fixer  # Ensure files end with a single newline
+      - id: mixed-line-ending  # Fix inconsistent line endings
+      - id: trailing-whitespace  # Remove trailing whitespace from files

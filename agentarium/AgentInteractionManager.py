@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-from typing import Dict, List, TYPE_CHECKING
+from typing import TYPE_CHECKING, Dict, List
+
 from .Interaction import Interaction
 
 if TYPE_CHECKING:

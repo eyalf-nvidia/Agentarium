@@ -1,16 +1,17 @@
 from __future__ import annotations
 
-import re
 import logging
-import aisuite as ai
-
-from enum import Enum
+import re
 from copy import deepcopy
-from typing import List, Callable
+from enum import Enum
+from typing import Callable, List
+
+import aisuite as ai
 from faker import Faker
-from .Interaction import Interaction
+
 from .AgentInteractionManager import AgentInteractionManager
 from .Config import Config
+from .Interaction import Interaction
 from .utils import cache_w_checkpoint_manager
 
 

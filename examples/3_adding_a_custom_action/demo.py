@@ -20,10 +20,11 @@ except 'action' which is reserved. The function's output will be automatically
 standardized to include the action name.
 """
 
-import aisuite as ai
-from typing import Dict, Any
-from agentarium.agent import Agent
+from typing import Any, Dict
 
+import aisuite as ai
+
+from agentarium.agent import Agent
 
 # Initialize the AI client for ChatGPT interactions
 llm_client = ai.Client()
